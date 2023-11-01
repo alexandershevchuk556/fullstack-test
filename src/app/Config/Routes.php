@@ -24,6 +24,15 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
+$routes->get('/', 'Home::index', ['filter' => 'auth']);
+$routes->post('/addComment', 'Home::addComment', ['filter' => 'auth']);
+$routes->get('/deleteComment', 'Home::deleteComment', ['filter' => 'auth']);
+$routes->get('register', 'Auth::registerView');
+$routes->post('register', 'Auth::register');
+$routes->get('login', 'Auth::loginView');
+$routes->post('login', 'Auth::login');
+
+
 /*
  * --------------------------------------------------------------------
  * Route Definitions
